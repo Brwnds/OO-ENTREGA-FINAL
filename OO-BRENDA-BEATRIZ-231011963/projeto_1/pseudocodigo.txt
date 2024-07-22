@@ -1,0 +1,132 @@
+[CLASSES]
+
+
+classe escolhaFigura
+imprimir "Digite o número correspondente à figura geométrica a ser inserida:
+1. Ponto
+2. Linha
+3. Quadrado
+4. Retângulo
+5. Círculo
+
+9. Verificar informações sobre figura geométrica previamente registrada
+0. Encerrar Programa"
+receber escolha do usuário
+retornar escolha
+
+classe resultados
+"Insira o número da figura geométrica a ser verificada. O primeiro elemento começa em 0."
+receber num do usuário
+retornar num
+
+classe ponto
+imprimir "Insira a coordenada X do ponto: "
+receber x do usuário
+imprimir "Insira a coordenada Y do ponto: "
+receber y do usuário
+
+str_resultado = ("Ponto localizado em: ({x},{y}).")
+
+
+classe linha
+imprimir "Insira a coordenada X do primeiro ponto da linha:"
+receber x0 do usuário
+imprimir "Insira a coordenada Y do primeiro ponto da linha:"
+receber y0 do usuário
+imprimir "Insira a coordenada X do segundo ponto da linha:"
+receber x1 do usuário
+imprimir "Insira a coordenada Y do segundo ponto da linha:"
+receber y1 do usuário
+
+base = x1-x0
+altura = y1-y0
+raiz = math.sqrt(base**2+altura**2)
+
+str_resultado = ("Linha localizada nos pontos: ({x0},{y0}) e ({x1},{y1}). [quebra de linha] Comprimento da")
+
+retornar str_resultado
+
+
+classe quadrado
+imprimir "Insira a coordenada X do quadrado:"
+receber x do usuário
+imprimir "Insira a coordenada Y do quadrado:"
+receber y do usuário
+imprimir "Insira um lado do quadrado em cm"
+receber variável int "lado" do usuário
+
+perimetro = 4*lado
+area = lado**2
+
+str_resultado = ("Quadrado localizado em: ({x},{y}). [quebra de linha] Perímetro do quadrado: {perimetro} cm. [quebra de linha] Área do quadrado:{area} cm.")
+
+retornar str_resultado
+
+
+classe retangulo
+imprimir "Insira a coordenada X do retângulo:"
+receber x do usuário
+imprimir "Insira a coordenada Y do retângulo:"
+receber y do usuário
+imprimir "Insira a altura do retângulo em cm:"
+receber variável int "altura" do usuário
+imprimir "Insira a base do retângulo em cm:"
+receber variável int "base" do usuário
+
+perimetro = 2*(altura+base)
+area = altura*base
+
+str_resultado = ("Retângulo localizado em: ({x},{y}). [quebra de linha] Perímetro do retângulo: {perimetro} cm. [quebra de linha] Área do retângulo:{area} cm.")
+
+retornar str_resultado
+
+
+classe círculo
+
+imprimir "Insira a coordenada X do círculo:"
+receber x do usuário
+imprimir "Insira a coordenada Y do círculo:"
+receber y do usuário
+imprimir "Insira o raio do círculo em cm:"
+receber variável int "raio"
+
+perimetro = 2*3,14*raio
+area = 3,14*raio*raio
+
+str_resultado = ("Círculo localizado em: ({x},{y}). [quebra de linha] Perímetro do círculo: {perimetro} cm. [quebra de linha] Área do círculo:{area} cm.")
+
+retornar str_resultado
+
+
+[PROGRAMA]
+
+loop for i=0; i>=1000:
+lista resultadosFig
+u = classe escolhaFigura();
+se u == 1
+adicionar classe ponto() à lista resultadosFig # checar se de fato é possível executar isso
+i++
+
+se u == 2
+adicionar classe linha() à lista resultadosFig
+i++
+
+se u == 3
+adicionar classe quadrado() à lista resultadosFig
+i++
+
+se u == 4
+adicionar classe retangulo() à lista resultadosFig
+i++
+
+se u == 5
+adicionar classe circulo() à lista resultadosFig
+i++
+
+se u == 9
+escolha = classe resultados()
+imprimir resultadosFig no índice que corresponde ao número da variável 'escolha'
+i++
+
+se u == 0
+i = 1000
